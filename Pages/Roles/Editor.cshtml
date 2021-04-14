@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> signInManager
 
-
+<!--Edit the user roles-->
 @if (signInManager.IsSignedIn(User) && User.IsInRole("Admins"))
 {
 

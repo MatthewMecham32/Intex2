@@ -18,7 +18,7 @@
         @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admins"))
         {
             //Add Users Name
-            <a method="post" asp-controller="Home" asp-action="Logout" class="nav-link">Logout</a>
+            <a method="post"  asp-page="/Account/Logout" class="nav-link">Logout</a>
             <a class="nav-link" asp-page="/Roles/List">Manage Roles</a>
             <a class="nav-link" asp-page="/Users/List">Manage Users</a>
 
@@ -30,7 +30,7 @@
 
 
             //Add Users Name
-            <a class="nav-link" method="post" asp-controller="Home" asp-action="Logout">Logout</a>
+            <a class="nav-link" method="post"  asp-page="/Account/Logout">Logout</a>
 
         }
 
@@ -38,7 +38,7 @@
         {
 
             //Add Users Name
-            <a class="nav-link" method="post" asp-controller="Home" asp-action="Logout">Logout</a>
+            <a class="nav-link" method="post" asp-page="/Account/Logout">Logout</a>
 
         }
 

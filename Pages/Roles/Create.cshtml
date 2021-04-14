@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> signInManager
 
-
+<!--Create User Roles-->
 @if (signInManager.IsSignedIn(User) && User.IsInRole("Admins"))
 {
     <h5 class="bg-primary text-white text-center p-2">Create Role</h5>

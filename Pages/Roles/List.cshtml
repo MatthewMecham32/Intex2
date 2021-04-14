@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> signInManager
 
-
+<!--Display the different users-->
 @if (signInManager.IsSignedIn(User) && User.IsInRole("Admins"))
 {
     <table class="table table-sm table-bordered">

@@ -2,7 +2,7 @@
 @model ListModel
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> signInManager
-
+<!-- Show a list of users-->
 
 @if (signInManager.IsSignedIn(User) && User.IsInRole("Admins"))
 {
