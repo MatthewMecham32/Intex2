@@ -1,0 +1,82 @@
+﻿@model Burial
+
+<h1>Add Burial</h1>
+
+<br />
+
+<form asp-action="AddFieldBurial" method="post">
+
+    <div>
+        <input asp-for="BurialId" type="hidden" />
+        <input asp-for="BurialSiteId" type="hidden" />
+    </div>
+
+
+    <div>
+        <label asp-for="BurialLocationNs">Burial Location N/S</label>
+        <input asp-for="BurialLocationNs" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="LowPairNs">Low Pair of N/S</label>
+        <input asp-for="LowPairNs" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="HighPairNs">High Pair of N/S</label>
+        <input asp-for="HighPairNs" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="BurialLocationEw">Burial Location E/W</label>
+        <input asp-for="BurialLocationEw" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="LowPairEw">Low Pair of E/W</label>
+        <input asp-for="LowPairEw" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="HighPairEw">High Pair of E/W</label>
+        <input asp-for="HighPairEw" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="BurialSubplot">Burial Subplot (NW,NE,SW,SE)</label>
+        <input asp-for="BurialSubplot" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="BurialNumber">Burial Number</label>
+        <input asp-for="BurialNumber" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="BurialDepthMeters">Burial Depth in Meters</label>
+        <input asp-for="BurialDepthMeters" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="SouthToHead">South to Head in Meters</label>
+        <input asp-for="SouthToHead" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="SouthToFeet">South to Feet in Meters</label>
+        <input asp-for="SouthToFeet" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="WestToHeadMeters">West to Head in Meters</label>
+        <input asp-for="WestToHeadMeters" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="WestToFeet">West to Feet in Meters</label>
+        <input asp-for="WestToFeet" type="number" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit Field Burial</button>
+
+</form>

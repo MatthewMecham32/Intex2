@@ -1,0 +1,393 @@
+﻿@{
+    ViewData["Title"] = "Burial List";
+    int i = 0;
+
+}
+@model BurialListViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div>
+    <div>
+        <!--filtering for hair, gender, depth and head direction in drop downs-->
+        <form asp-action="BurialList" method="get">
+            <label>Burial ID</label>
+            <input type="text" value="all" name="BurialId" id="BurialId" />
+            <label>Choose a Hair Color</label>
+            <select name="HairColor" id="HairColor">
+                <option value="all">All</option>
+                <option value="Red Blonde">Red Blonde</option>
+                <option value="Very Blonde">Very Blonde</option>
+                <option value="Auburn">Auburn</option>
+                <option value="Unknown">Unknown</option>
+                <option value="Red">Red</option>
+                <option value="Brown">Brown</option>
+                <option value="Black">Black</option>
+                <option value="Light Brown">Light Brown</option>
+                <option value="Dark Brown">Dark Brown</option>
+                <option value="Blonde">Blonde</option>
+            </select>
+            <label>Gender</label>
+            <select name="Gender" id="Gender">
+                <option value="all">All</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Undetermined">Undetermined</option>
+                <option value="Subadult">Subadult</option>
+            </select>
+            <label>Burial Depth</label>
+            <select name="BurialDepth" id="BurialDepth">
+                <option value=-1>-1</option>
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=162>162</option>
+            </select>
+            <label>Head Direction</label>
+            <select name="HeadDirection" id="HeadDirection">
+                <option value="all">All</option>
+                <option value="W">West</option>
+                <option value="E">East</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+    </div>
+</div>
+@*<table class="table table-dark table-striped table-hover">
+    <thead class="thead-light table-bordered table-condensed">
+        <tr>
+            <th class="col-1">@Html.ActionLink("Burial ID", "BurialList", new { sortOrder = ViewBag.NameSortParm })</th>
+            <th class="col-1"><a asp-action="BurialList" asp-route-sortOrder="@ViewData["StoHSortParm"]">South To Head</a></th>
+            <th class="col-1"><a asp-action="BurialList" asp-route-sortOrder="@ViewData["StoFtSortParm"]">South To Feet</a></th>
+            <th class="col-1"><a asp-action="BurialList" asp-route-sortOrder="@ViewData["WtoHSortParm"]">West To Head</a></th>
+            <th class="col-1"><a asp-action="BurialList" asp-route-sortOrder="@ViewData["WtoFtSortParm"]">West To Feet</a></th>
+            <th class="col-1"><a asp-action="BurialList" asp-route-sortOrder="@ViewData["LengthSortParm"]">Gender</a></th>
+            <th class="col-1"><a asp-action="BurialList" asp-route-sortOrder="@ViewData["DepthSortParm"]">Burial Depth</a></th>
+            <th class="col-1"><a asp-action="BurialList" asp-route-sortOrder="@ViewData["HairColorParm"]">Hair Color</a></th>
+            <th class="col-1"><a asp-action="BurialList" asp-route-sortOrder="@ViewData["AgeSortParm"]">Age</a></th>
+            <th class="col-1"><a asp-action="BurialList" asp-route-sortOrder="@ViewData["HeadDirection"]">Head Direction</a></th>
+            <th class="col-1"><a asp-action="BurialList" asp-route-sortOrder="@ViewData["SampleTaken"]">Sample Taken</a></th>
+            <th></th>
+
+        </tr>
+
+    </thead>
+    <tbody>*@
+
+<!--displays 60 burials per page with basic info as well as links to other functionality-->
+<div class="container" style="padding-top:50px; padding-bottom:150px">
+    <div class="flexbox text-center grid-container">
+        @foreach (var x in Model.Burials)
+        { 
+
+
+        <div class="float-left col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">BurialID: @x.BurialId</h4>
+                    <p class="card-text">Gender: @x.GenderGe</p>
+                    <p class="card-text">Hair Color: @x.HairColor</p>
+                    <p class="card-text">Burial Depth Meters:@x.BurialDepthMeters</p>
+                    <p class="card-text">Head Direction: @x.HeadDirection</p>
+                </div>
+
+
+
+                <div class="card-footer text-center">
+                    <form id="@x.OurId" method="get" asp-action="ViewDetails">
+                        <input type="hidden" name="OurId" value="@x.OurId" />
+                        <input type="hidden" name="BurialId" value="@x.BurialId" />
+                        <input type="hidden" name="OurId" value="@x.OurId" />
+                        <input type="hidden" name="FaceBundle" value="@x.FaceBundle" />
+                        <input type="hidden" name="BurialWrapping" value="@x.BurialWrapping" />
+                        <input type="hidden" name="BurialSituation" value="@x.BurialSituation" />
+                        <input type="hidden" name="Cluster" value="@x.Cluster" />
+                        <input type="hidden" name="SampleNumber" value="@x.SampleNumber" />
+                        <input type="hidden" name="GenderGe" value="@x.GenderGe" />
+                        <input type="hidden" name="GenderBodyCol" value="@x.GenderBodyCol" />
+                        <input type="hidden" name="Osteophytosis" value="@x.Osteophytosis" />
+                        <input type="hidden" name="Robust" value="@x.Robust" />
+                        <input type="hidden" name="PreservationIndex" value="@x.PreservationIndex" />
+                        <input type="hidden" name="BurialPreservation" value="@x.BurialPreservation" />
+                        <input type="hidden" name="HairTaken" value="@x.HairTaken" />
+                        <input type="hidden" name="SoftTissueTaken" value="@x.SoftTissueTaken" />
+                        <input type="hidden" name="BoneTaken" value="@x.BoneTaken" />
+                        <input type="hidden" name="ToothTaken" value="@x.ToothTaken" />
+                        <input type="hidden" name="TextileTaken" value="@x.TextileTaken" />
+                        <input type="hidden" name="DescriptionOfTaken" value="@x.DescriptionOfTaken" />
+                        <input type="hidden" name="ArtifactFound" value="@x.ArtifactFound" />
+                        <input type="hidden" name="EstimateAge" value="@x.EstimateAge" />
+                        <input type="hidden" name="AgeCategory" value="@x.AgeCategory" />
+                        <input type="hidden" name="EstimateLivingStature" value="@x.EstimateLivingStature" />
+                        <input type="hidden" name="ToothAttrition" value="@x.ToothAttrition" />
+                        <input type="hidden" name="PathologyAnomalies" value="@x.PathologyAnomalies" />
+                        <input type="hidden" name="EpiphysealUnion" value="@x.EpiphysealUnion" />
+                        <input type="hidden" name="BodyAnalysis" value="@x.BodyAnalysis" />
+                        <input type="hidden" name="YearFound" value="@x.YearFound" />
+                        <input type="hidden" name="MonthFound" value="@x.MonthFound" />
+                        <input type="hidden" name="DayFound" value="@x.DayFound" />
+                        <input type="hidden" name="HeadDirection" value="@x.HeadDirection" />
+                        <input type="hidden" name="Gamous" value="@x.Gamous" />
+                        <input type="hidden" name="FieldBook" value="@x.FieldBook" />
+                        <input type="hidden" name="FieldBookPageNumber" value="@x.FieldBookPageNumber" />
+                        <input type="hidden" name="FieldBookNotes" value="@x.FieldBookNotes" />
+                        <input type="hidden" name="ByuHasSample" value="@x.ByuHasSample" />
+                        <input type="hidden" name="OsteologyUnknownComment" value="@x.OsteologyUnknownComment" />
+                        <input type="hidden" name="TemporalMandibularJointOsteoarthritisTmjOa" value="@x.TemporalMandibularJointOsteoarthritisTmjOa" />
+                        <input type="hidden" name="PostcraniaAtMagazine" value="@x.PostcraniaAtMagazine" />
+                        <input type="hidden" name="LinearHypoplasiaEnamel" value="@x.LinearHypoplasiaEnamel" />
+                        <input type="hidden" name="PostcraniaTrauma" value="@x.PostcraniaTrauma" />
+                        <input type="hidden" name="Area" value="@x.Area" />
+                        <input type="hidden" name="Tomb" value="@x.Tomb" />
+                        <input type="hidden" name="Rack" value="@x.Rack" />
+                        <input type="hidden" name="Shelf" value="@x.Shelf" />
+                        <input type="hidden" name="OsteologyNotes" value="@x.OsteologyNotes" />
+                        <input type="hidden" name="SampleTaken" value="@x.SampleTaken" />
+                        <input type="hidden" name="SexMethod" value="@x.SexMethod" />
+                        <input type="hidden" name="AgeMethod" value="@x.AgeMethod" />
+                        <input type="hidden" name="BurialArtifactDescription" value="@x.BurialArtifactDescription" />
+                        <input type="hidden" name="BuriedWithArtifacts" value="@x.BuriedWithArtifacts" />
+                        <button class="btn btn-primary">Find Out More!</button>
+                    </form>
+                    <br />
+
+
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#collapse">Even More Info!</a>
+                                </h4>
+                            </div>
+                            <div id="collapse" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <!--link to the head info attached to the burial if any-->
+                                    <form id="@x.OurId" method="get" asp-action="HeadInfo">
+                                        <input type="hidden" name="OurId" value="@x.OurId" />
+                                        <button class="btn btn-primary">Head Info</button>
+                                    </form>
+                                    <br /> <!--link to the hip info attached to the burial if any-->
+                                    <form id="@x.OurId" method="get" asp-action="HipInfo">
+                                        <input type="hidden" name="OurId" value="@x.OurId" />
+                                        <button class="btn btn-primary">Hip Info</button>
+                                    </form>
+                                    <br /> <!--link to the arm info attached to the burial if any-->
+                                    <form id="@x.OurId" method="get" asp-action="ArmInfo">
+                                        <input type="hidden" name="OurId" value="@x.OurId" />
+                                        <button class="btn btn-primary">Arm Info</button>
+                                    </form>
+                                    <br /> <!--link to the leg info attached to the burial if any-->
+                                    <form id="@x.OurId" method="get" asp-action="LegInfo">
+                                        <input type="hidden" name="OurId" value="@x.OurId" />
+                                        <button class="btn btn-primary">Leg Info</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <br /> <!--button to edit the burial if the user is an admin -->
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Admins"))
+                    {
+
+
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" href="#collapse2">Edit/Delete</a>
+                                    </h4>
+                                </div>
+
+                                <div id="collapse2" class="panel-collapse collapse">
+                                    <form id="@x.OurId" method="get" asp-action="EditBurial">
+                                        <input type="hidden" name="OurId" value="@x.OurId" />
+                                        <button type="submit" class="btn btn-warning">Edit</button>
+                                    </form>
+                                    <!--if the user is logged in as an admin they will be able to view this button to delete a burial-->
+                                    <form id="@x.OurId" method="post" asp-action="Delete">
+                                        <input type="hidden" name="OurId" value="@x.OurId" />
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                    <br />
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+
+
+
+                    }
+                    else
+                    {
+
+                    }
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    }
+    </div>
+</div>
+@*<tr>
+            <td>@x.BurialId</td>
+
+
+
+            <td>@x.SouthToHead</td>
+            <td>@x.SouthToFeet</td>
+            <td>@x.WestToHeadMeters</td>
+            <td>@x.WestToFeet</td>
+            <td>@x.GenderGe</td>
+            <td>@x.BurialDepthMeters</td>
+            <td>@x.HairColor</td>
+            <td>@x.EstimateAge</td>
+            <td>@x.HeadDirection </td>
+            <td>@x.SampleTaken</td>
+
+
+
+
+
+
+
+
+            <td>
+                <form id="@x.OurId" method="get" asp-action="ViewDetails">
+                    <input type="hidden" name="BurialId" value="@x.BurialId" />
+                    <input type="hidden" name="OurId" value="@x.OurId" />
+                    <input type="hidden" name="FaceBundle" value="@x.FaceBundle" />
+                    <input type="hidden" name="BurialWrapping" value="@x.BurialWrapping" />
+                    <input type="hidden" name="BurialSituation" value="@x.BurialSituation" />
+                    <input type="hidden" name="Cluster" value="@x.Cluster" />
+                    <input type="hidden" name="SampleNumber" value="@x.SampleNumber" />
+                    <input type="hidden" name="GenderGe" value="@x.GenderGe" />
+                    <input type="hidden" name="GenderBodyCol" value="@x.GenderBodyCol" />
+                    <input type="hidden" name="Osteophytosis" value="@x.Osteophytosis" />
+                    <input type="hidden" name="Robust" value="@x.Robust" />
+                    <input type="hidden" name="PreservationIndex" value="@x.PreservationIndex" />
+                    <input type="hidden" name="BurialPreservation" value="@x.BurialPreservation" />
+                    <input type="hidden" name="HairTaken" value="@x.HairTaken" />
+                    <input type="hidden" name="SoftTissueTaken" value="@x.SoftTissueTaken" />
+                    <input type="hidden" name="BoneTaken" value="@x.BoneTaken" />
+                    <input type="hidden" name="ToothTaken" value="@x.ToothTaken" />
+                    <input type="hidden" name="TextileTaken" value="@x.TextileTaken" />
+                    <input type="hidden" name="DescriptionOfTaken" value="@x.DescriptionOfTaken" />
+                    <input type="hidden" name="ArtifactFound" value="@x.ArtifactFound" />
+                    <input type="hidden" name="EstimateAge" value="@x.EstimateAge" />
+                    <input type="hidden" name="AgeCategory" value="@x.AgeCategory" />
+                    <input type="hidden" name="EstimateLivingStature" value="@x.EstimateLivingStature" />
+                    <input type="hidden" name="ToothAttrition" value="@x.ToothAttrition" />
+                    <input type="hidden" name="PathologyAnomalies" value="@x.PathologyAnomalies" />
+                    <input type="hidden" name="EpiphysealUnion" value="@x.EpiphysealUnion" />
+                    <input type="hidden" name="BodyAnalysis" value="@x.BodyAnalysis" />
+                    <input type="hidden" name="YearFound" value="@x.YearFound" />
+                    <input type="hidden" name="MonthFound" value="@x.MonthFound" />
+                    <input type="hidden" name="DayFound" value="@x.DayFound" />
+                    <input type="hidden" name="HeadDirection" value="@x.HeadDirection" />
+                    <input type="hidden" name="Gamous" value="@x.Gamous" />
+                    <input type="hidden" name="FieldBook" value="@x.FieldBook" />
+                    <input type="hidden" name="FieldBookPageNumber" value="@x.FieldBookPageNumber" />
+                    <input type="hidden" name="FieldBookNotes" value="@x.FieldBookNotes" />
+                    <input type="hidden" name="ByuHasSample" value="@x.ByuHasSample" />
+                    <input type="hidden" name="OsteologyUnknownComment" value="@x.OsteologyUnknownComment" />
+                    <input type="hidden" name="TemporalMandibularJointOsteoarthritisTmjOa" value="@x.TemporalMandibularJointOsteoarthritisTmjOa" />
+                    <input type="hidden" name="PostcraniaAtMagazine" value="@x.PostcraniaAtMagazine" />
+                    <input type="hidden" name="LinearHypoplasiaEnamel" value="@x.LinearHypoplasiaEnamel" />
+                    <input type="hidden" name="PostcraniaTrauma" value="@x.PostcraniaTrauma" />
+                    <input type="hidden" name="Area" value="@x.Area" />
+                    <input type="hidden" name="Tomb" value="@x.Tomb" />
+                    <input type="hidden" name="Rack" value="@x.Rack" />
+                    <input type="hidden" name="Shelf" value="@x.Shelf" />
+                    <input type="hidden" name="OsteologyNotes" value="@x.OsteologyNotes" />
+                    <input type="hidden" name="SampleTaken" value="@x.SampleTaken" />
+                    <input type="hidden" name="SexMethod" value="@x.SexMethod" />
+                    <input type="hidden" name="AgeMethod" value="@x.AgeMethod" />
+                    <input type="hidden" name="BurialArtifactDescription" value="@x.BurialArtifactDescription" />
+                    <input type="hidden" name="BuriedWithArtifacts" value="@x.BuriedWithArtifacts" />
+                    <button type="submit">Details</button>
+                </form>
+
+                @if (signInManager.IsSignedIn(User) && User.IsInRole("Admins"))
+                {
+                    <form id="@x.OurId" method="get" asp-action="EditBurial">
+                        <input type="hidden" name="OurId" value="@x.OurId" />
+                        <button type="submit">Edit</button>
+                    </form>
+                }
+                else
+                {
+
+                }
+
+
+
+                @if (signInManager.IsSignedIn(User) && User.IsInRole("Admins"))
+                {
+                    <form id="@x.OurId" method="post" asp-action="Delete">
+                        <input type="hidden" name="OurId" value="@x.OurId" />
+                        <button type="submit">Delete</button>
+                    </form>
+                }
+                else
+                {
+
+                }
+                <form id="@x.OurId" method="get" asp-action="ArmInfo">
+                    <input type="hidden" name="OurId" value="@x.OurId" />
+                    <button type="submit">Arm Info</button>
+                </form>
+                <form id="@x.OurId" method="get" asp-action="LegInfo">
+                    <input type="hidden" name="OurId" value="@x.OurId" />
+                    <button type="submit">Leg Info</button>
+                </form>
+                <form id="@x.OurId" method="get" asp-action="HeadInfo">
+                    <input type="hidden" name="OurId" value="@x.OurId" />
+                    <button type="submit">Head Info</button>
+                </form>
+                <form id="@x.OurId" method="get" asp-action="HipInfo">
+                    <input type="hidden" name="OurId" value="@x.OurId" />
+                    <button type="submit">Hip Info</button>
+                </form>
+            </td>
+        </tr>
+
+
+    }*@
+<!--</tbody>
+</table>-->
+@*</div>*@
+
+
+
+
+
+<!--Displays pagination -->
+
+<div page-model="@Model.PageNumberingInfo" page-action="BurialList" page-info="@Model.PageNumberingInfo"
+     page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" class="btn-group align-content-center text-center pull-right m-1"
+     ToolTip="Click me to go to this page">
+</div>
+
+

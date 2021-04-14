@@ -1,0 +1,205 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@model IEnumerable<Burial>
+
+
+
+
+<body>
+    <br />
+    <br />
+    <br />
+
+
+
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admins"))
+    {
+        <br />
+        <br />
+    }
+
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="display-3">Fag El-Gamous Mummies</h1>
+                        <p class="lead " style="color:gold;">
+                            <b>
+                                Welcome to our mummy data from the Fag El-Gamous site! On this website, you can filter and look through all the data we have collected on all mummies.
+                                Thank you for visiting our website!
+                            </b>
+                        </p>
+                        <a asp-action="BurialList" class="btn btn-primary btn-lg">View Burials</a>
+                    </div>
+                    <div class="col">
+                        <img src="/img/brand.png" />
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+
+
+        </div>
+
+        <!-- Page Features -->
+        <div class="row text-center">
+
+
+            <!--Prints 4 items from the thingy-->
+            @foreach (var x in Model)
+            {
+
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="/img/brand.png" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">@x.BurialId</h4>
+                            <p class="card-text">@x.HeadDirection</p>
+                            <p class="card-text">@x.GenderGe</p>
+                            <p class="card-text">@x.AgeCategory</p>
+                        </div>
+
+                        <div class="card-footer">
+
+                            <form id="@x.OurId" method="get" class="btn btn-primary" asp-action="ViewDetails">
+                                <input type="hidden" name="BurialId" value="@x.BurialId" />
+                                <input type="hidden" name="OurId" value="@x.OurId" />
+                                <input type="hidden" name="FaceBundle" value="@x.FaceBundle" />
+                                <input type="hidden" name="BurialWrapping" value="@x.BurialWrapping" />
+                                <input type="hidden" name="BurialSituation" value="@x.BurialSituation" />
+                                <input type="hidden" name="Cluster" value="@x.Cluster" />
+                                <input type="hidden" name="SampleNumber" value="@x.SampleNumber" />
+                                <input type="hidden" name="GenderGe" value="@x.GenderGe" />
+                                <input type="hidden" name="GenderBodyCol" value="@x.GenderBodyCol" />
+                                <input type="hidden" name="Osteophytosis" value="@x.Osteophytosis" />
+                                <input type="hidden" name="Robust" value="@x.Robust" />
+                                <input type="hidden" name="PreservationIndex" value="@x.PreservationIndex" />
+                                <input type="hidden" name="BurialPreservation" value="@x.BurialPreservation" />
+                                <input type="hidden" name="HairTaken" value="@x.HairTaken" />
+                                <input type="hidden" name="SoftTissueTaken" value="@x.SoftTissueTaken" />
+                                <input type="hidden" name="BoneTaken" value="@x.BoneTaken" />
+                                <input type="hidden" name="ToothTaken" value="@x.ToothTaken" />
+                                <input type="hidden" name="TextileTaken" value="@x.TextileTaken" />
+                                <input type="hidden" name="DescriptionOfTaken" value="@x.DescriptionOfTaken" />
+                                <input type="hidden" name="ArtifactFound" value="@x.ArtifactFound" />
+                                <input type="hidden" name="EstimateAge" value="@x.EstimateAge" />
+                                <input type="hidden" name="AgeCategory" value="@x.AgeCategory" />
+                                <input type="hidden" name="EstimateLivingStature" value="@x.EstimateLivingStature" />
+                                <input type="hidden" name="ToothAttrition" value="@x.ToothAttrition" />
+                                <input type="hidden" name="PathologyAnomalies" value="@x.PathologyAnomalies" />
+                                <input type="hidden" name="EpiphysealUnion" value="@x.EpiphysealUnion" />
+                                <input type="hidden" name="BodyAnalysis" value="@x.BodyAnalysis" />
+                                <input type="hidden" name="YearFound" value="@x.YearFound" />
+                                <input type="hidden" name="MonthFound" value="@x.MonthFound" />
+                                <input type="hidden" name="DayFound" value="@x.DayFound" />
+                                <input type="hidden" name="HeadDirection" value="@x.HeadDirection" />
+                                <input type="hidden" name="Gamous" value="@x.Gamous" />
+                                <input type="hidden" name="FieldBook" value="@x.FieldBook" />
+                                <input type="hidden" name="FieldBookPageNumber" value="@x.FieldBookPageNumber" />
+                                <input type="hidden" name="FieldBookNotes" value="@x.FieldBookNotes" />
+                                <input type="hidden" name="ByuHasSample" value="@x.ByuHasSample" />
+                                <input type="hidden" name="OsteologyUnknownComment" value="@x.OsteologyUnknownComment" />
+                                <input type="hidden" name="TemporalMandibularJointOsteoarthritisTmjOa" value="@x.TemporalMandibularJointOsteoarthritisTmjOa" />
+                                <input type="hidden" name="PostcraniaAtMagazine" value="@x.PostcraniaAtMagazine" />
+                                <input type="hidden" name="LinearHypoplasiaEnamel" value="@x.LinearHypoplasiaEnamel" />
+                                <input type="hidden" name="PostcraniaTrauma" value="@x.PostcraniaTrauma" />
+                                <input type="hidden" name="Area" value="@x.Area" />
+                                <input type="hidden" name="Tomb" value="@x.Tomb" />
+                                <input type="hidden" name="Rack" value="@x.Rack" />
+                                <input type="hidden" name="Shelf" value="@x.Shelf" />
+                                <input type="hidden" name="OsteologyNotes" value="@x.OsteologyNotes" />
+                                <input type="hidden" name="SampleTaken" value="@x.SampleTaken" />
+                                <input type="hidden" name="SexMethod" value="@x.SexMethod" />
+                                <input type="hidden" name="AgeMethod" value="@x.AgeMethod" />
+                                <input type="hidden" name="BurialArtifactDescription" value="@x.BurialArtifactDescription" />
+                                <input type="hidden" name="BuriedWithArtifacts" value="@x.BuriedWithArtifacts" />
+                                <button class="btn btn-primary" type="submit">View Details</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            }
+
+
+        </div>
+        <h3>Scroll Down to Explore the Data</h3>
+
+
+    </div>
+    <div class='tableauPlaceholder' id='viz1618356271133' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IN&#47;INTEX2Tableau&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='INTEX2Tableau&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IN&#47;INTEX2Tableau&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /></object></div>
+    <script type='text/javascript'>var divElement = document.getElementById('viz1618356271133'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '1024px'; vizElement.style.height = '795px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '1024px'; vizElement.style.height = '795px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+    <br />
+    <br />
+    <br />
+    <div class='tableauPlaceholder' id='viz1618356468798' style='position: relative'><noscript><a href='#'><img alt='Dashboard 2 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IN&#47;INTEX2Tableau&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='INTEX2Tableau&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IN&#47;INTEX2Tableau&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /></object></div>
+    <script type='text/javascript'>var divElement = document.getElementById('viz1618356468798'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script><br />
+    <br />
+    <br />
+    <div class='tableauPlaceholder' id='viz1618356489792' style='position: relative'><noscript><a href='#'><img alt='Dashboard 3 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IN&#47;INTEX2Tableau&#47;Dashboard3&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='INTEX2Tableau&#47;Dashboard3' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IN&#47;INTEX2Tableau&#47;Dashboard3&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /></object></div>
+    <script type='text/javascript'>var divElement = document.getElementById('viz1618356489792'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+    <br />
+    <br />
+    <br />
+    <div class='tableauPlaceholder' id='viz1618356519355' style='position: relative'><noscript><a href='#'><img alt='Dashboard 4 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IN&#47;INTEX2Tableau&#47;Dashboard4&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='INTEX2Tableau&#47;Dashboard4' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IN&#47;INTEX2Tableau&#47;Dashboard4&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /></object></div>
+    <script type='text/javascript'>var divElement = document.getElementById('viz1618356519355'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+    <br />
+    <br />
+    <br />
+    <div class='tableauPlaceholder' id='viz1618356538805' style='position: relative'><noscript><a href='#'><img alt='Dashboard 5 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IN&#47;INTEX2Tableau&#47;Dashboard5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='INTEX2Tableau&#47;Dashboard5' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IN&#47;INTEX2Tableau&#47;Dashboard5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /></object></div>
+    <script type='text/javascript'>var divElement = document.getElementById('viz1618356538805'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+    <br />
+    <br />
+
+
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+    }
+    else
+    {
+        <div class="text-center">
+            <p><a asp-page="/Account/Login">Login</a> to add or edit records.</p>
+        </div>
+    }
+
+
+
+
+</body>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+

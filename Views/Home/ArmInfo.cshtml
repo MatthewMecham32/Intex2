@@ -1,0 +1,63 @@
+﻿@model ArmViewmodel
+
+
+
+
+
+<div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <h1>Arm Information</h1>
+
+    @*Prints out applicable "Arm" information for a burial*@
+    <table class="table table-dark table-striped table-hover">
+        <thead class="thead-light table-bordered table-condensed">
+            <tr>
+                <th>Burial ID</th>
+                <th>Humerus Head</th>
+                <th>Medial Clavicle</th>
+                <th>Humerus</th>
+                <th>Humerus Length</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var x in Model.Arm)
+            {
+            <tr>
+                <td>@x.OurId</td>
+                <td>@x.HumerusHead</td>
+                <td>@x.MedialClavicle</td>
+                <td>@x.Humerus</td>
+                <td>@x.HumerusLength</td>
+
+
+
+            </tr>
+            }
+
+        </tbody>
+    </table>
+
+    <!--button to take the user back to the burial list-->
+    <form asp-action="BurialList" method="post">
+        <button class="btn-info" type="submit">Burial list</button>
+    </form>
+
+
+</div>
+
+
+
+
+

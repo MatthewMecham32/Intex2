@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Pictures>
+
+<h1>@ViewBag.SelectedID</h1>
+
+
+
+@foreach (var x in Model)
+{
+<img src="@x.PicUrl" width="100" height="150"/>
+    <br />
+}

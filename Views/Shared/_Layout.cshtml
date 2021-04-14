@@ -1,0 +1,123 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/jpg" href="~/android-chrome-512x512.png"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Fag El-Gamous</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <!--These are the correct links-->
+    <link href="~\css\bootstrap.min.css" rel="stylesheet" />
+    <link href="~\css\heroic-features.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+
+                <h1><a asp-action="Index" method="get" class="text-light">Fag El-Gamous</a></h1>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link " asp-action="BurialList">Burial List</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-action="UploadPhotos">Upload Photo</a>
+                        </li>
+                    </ul>
+                </div>
+
+                @*Div below is user specific info*@
+            <div>
+
+
+
+                @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admins"))
+                {
+                    //Add Users Name
+                    <a method="post" asp-page="/Account/Logout" class="nav-link active">Logout</a>
+                    <a class="nav-link active" asp-page="/Roles/List">Manage Roles</a>
+                    <a class="nav-link active" asp-page="/Users/List">Manage Users</a>
+                    <a method="get" asp-action="AddFieldBurial" class="nav-link active">Add Field Burial</a>
+                    <a method="get" asp-action="AddBurial" class="nav-link active">Add Burial</a>
+
+                }
+
+                else if (SignInManager.IsSignedIn(User) && (User.IsInRole("Researcher")))
+                {
+                //add links for add burial
+
+
+                <a method="get" asp-action="AddFieldBurial" class="nav-link active">Add Field Burial</a>
+                <a method="get" asp-action="AddBurial" class="nav-link active">Add Burial</a>
+
+                //Add Users Name
+                <a class="nav-link active" method="post" asp-page="/Account/Logout">Logout</a>
+
+                }
+
+                else if (SignInManager.IsSignedIn(User) && User.IsInRole("User"))
+                {
+
+                //Add Users Name
+                <a class="nav-link active" method="post" asp-page="/Account/Logout">Logout</a>
+
+                }
+
+                else if (SignInManager.IsSignedIn(User))
+                {
+                <a class="nav-link active" method="post" asp-page="/Account/Logout">Logout</a>
+                }
+
+                else
+                {
+
+                <a class="nav-link active" asp-page="/Account/Login">Login</a>
+                <a class="nav-link active" asp-page="/Users/Create">Create Account</a>
+
+                }
+
+
+
+
+            </div>
+            </div>
+
+
+
+
+
+        </nav>
+    </header>
+    <div class="container">
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Fag el-Gamous  - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

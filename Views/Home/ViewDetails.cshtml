@@ -1,0 +1,230 @@
+﻿@model Burial
+
+
+
+<div>
+    <!--gives all the info for the burial selected-->
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <vc:picture />
+    <br />
+    <br />
+
+    <h1>Additional Information for @Model.BurialId</h1>
+    <form asp-action="UploadPhotos" method="get">
+        <input type="hidden" asp-for="@Model.OurId" />
+        <button class="btn-info" type="submit">Add a picture</button>
+    </form>
+    <form asp-action="BurialList" method="post">
+        <button class="btn-info" type="submit">Burial list</button>
+    </form>
+    <div class="col-6" style="float:left;">
+        <div>
+            <p class="inline-p">Face Bundle: @Model.FaceBundle</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Burial Wrapping: @Model.BurialWrapping</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Burial Situation: @Model.BurialSituation</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Cluster: @Model.Cluster</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Sample Number: @Model.SampleNumber</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Gender Ge: @Model.GenderGe</p>
+        </div>
+
+
+        <div>
+            <p class="inline-p">Gender Body Col: @Model.GenderBodyCol</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Osteophytosis: @Model.Osteophytosis</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Robust: @Model.Robust</p>
+        </div>
+
+        <div>
+
+            <p class="inline-p">Preservation Index: @Model.PreservationIndex</p>
+        </div>
+
+        <div>
+            <p>Burial Preservation: @Model.BurialPreservation</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Hair Taken: @Model.HairTaken </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Soft Tissue Taken: @Model.SoftTissueTaken </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Bone Taken: @Model.BoneTaken</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Tooth Taken: @Model.ToothTaken</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Textile Taken: @Model.TextileTaken </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Description Of Taken: @Model.DescriptionOfTaken </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Artifact Found: @Model.ArtifactFound</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Estimate Age: @Model.EstimateAge</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Age Category: @Model.AgeCategory</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Estimate Living Stature: @Model.EstimateLivingStature </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Tooth Attrition: @Model.ToothAttrition</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Pathology Anomalies: @Model.PathologyAnomalies </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Epiphyseal Union: @Model.EpiphysealUnion </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Body Analysis: @Model.BodyAnalysis </p>
+        </div>
+    </div>
+    <div class="col-6" style="float:left;>
+        <div>
+            <p class="inline-p">Year Found: @Model.YearFound </p>
+        </div>
+        </div>
+    <div>
+        <div>
+            <p class="inline-p">Month Found: @Model.MonthFound </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Day Found: @Model.DayFound </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Head Direction: @Model.HeadDirection </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Gamous: @Model.Gamous </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Field Book: @Model.FieldBook </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Field Book Page Number: @Model.FieldBookPageNumber </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Field Book Notes: @Model.FieldBookNotes </p>
+        </div>
+
+        <div>
+            <p class="inline-p">BYU Has Sample: @Model.ByuHasSample </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Osteology Unknown Comment: @Model.OsteologyUnknownComment </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Temporal Mandibular Joint Osteoarthritis TmjOa: @Model.TemporalMandibularJointOsteoarthritisTmjOa </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Postcrania At Magazine: @Model.PostcraniaAtMagazine </p>
+        </div>
+
+        <div>
+            <p class="inline-p">Linear Hypoplasia Enamel: @Model.LinearHypoplasiaEnamel</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Postcrania Trauma: @Model.PostcraniaTrauma</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Area: @Model.Area</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Tomb: @Model.Tomb</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Rack: @Model.Rack</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Shelf: @Model.Shelf</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Osteology Notes: @Model.OsteologyNotes</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Sample Taken: @Model.SampleTaken</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Sex Method: @Model.SexMethod</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Age Method: @Model.AgeMethod</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Burial Artifact Description: @Model.BurialArtifactDescription</p>
+        </div>
+
+        <div>
+            <p class="inline-p">Buried With Artifacts: @Model.BuriedWithArtifacts</p>
+        </div>
+    </div>
+
+    <!--button to take the user back to the burial list page-->
+
+
+</div>

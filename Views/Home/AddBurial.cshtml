@@ -1,0 +1,399 @@
+﻿@model Burial
+
+<h1>Add Burial</h1>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<form asp-action="AddBurial" method="post">
+
+    <div>
+        <input asp-for="BurialId" type="hidden" />
+        <input asp-for="BurialSiteId" type="hidden" />
+    </div>
+
+
+    <div>
+        <label asp-for="BurialLocationNs">Burial Location N/S</label>
+        <input asp-for="BurialLocationNs" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="LowPairNs">Low Pair of N/S</label>
+        <input asp-for="LowPairNs" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="HighPairNs">High Pair of N/S</label>
+        <input asp-for="HighPairNs" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="BurialLocationEw">Burial Location E/W</label>
+        <input asp-for="BurialLocationEw" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="LowPairEw">Low Pair of E/W</label>
+        <input asp-for="LowPairEw" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="HighPairEw">High Pair of E/W</label>
+        <input asp-for="HighPairEw" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="BurialSubplot">Burial Subplot (NW,NE,SW,SE)</label>
+        <input asp-for="BurialSubplot" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="BurialNumber">Burial Number</label>
+        <input asp-for="BurialNumber" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="BurialDepthMeters">Burial Depth in Meters</label>
+        <input asp-for="BurialDepthMeters" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="SouthToHead">South to Head in Meters</label>
+        <input asp-for="SouthToHead" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="SouthToFeet">South to Feet in Meters</label>
+        <input asp-for="SouthToFeet" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="WestToHeadMeters">West to Head in Meters</label>
+        <input asp-for="WestToHeadMeters" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="WestToFeet">West to Feet in Meters</label>
+        <input asp-for="WestToFeet" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="FaceBundle">Face Bundle</label>
+        <input asp-for="FaceBundle" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="BurialWrapping">Burial Wrapping</label>
+        <input asp-for="BurialWrapping" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="BurialSituation">Burial Situation</label>
+        <input asp-for="BurialSituation" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="Cluster">Cluster</label>
+        <input asp-for="Cluster" type="text" />
+    </div>
+
+    <div>
+        <lable asp-for="BurialLengthMeters">Burial Length in Meters</lable>
+        <input asp-for="BurialLengthMeters" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="SampleNumber">Sample Number</label>
+        <input asp-for="SampleNumber" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="GenderGe">Gender GE</label>
+        <input asp-for="GenderGe" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="GeFunctionTotal">Ge Function Total</label>
+        <input asp-for="GeFunctionTotal" type="text" />
+    </div>
+
+    <div>
+        <lable asp-for="GenderBodyCol">Gender Body Col</lable>
+        <input asp-for="GenderBodyCol" type="text" />
+    </div>
+    <div>
+        <label asp-for="SexMethod">Sex Method</label>
+        <input asp-for="SexMethod" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="Osteophytosis">Osteophytosis</label>
+        <input asp-for="Osteophytosis" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="Robust">Robust</label>
+        <input asp-for="Robust" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="ArtifactsDescription">Artifacts Description</label>
+        <input asp-for="ArtifactsDescription" type="text" />
+    </div>
+
+    <div>
+        <lable asp-for="HairColor">Hair Color</lable>
+        <input asp-for="HairColor" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="PreservationIndex">Preservation Index</label>
+        <select asp-for="PreservationIndex">
+            <option value="I">Terrible</option>
+            <option value="II">Poor</option>
+            <option value="III">Okay</option>
+            <option value="IV">Good</option>
+            <option value="V">Amazing</option>
+        </select>
+    </div>
+
+    <div>
+        <label asp-for="BurialPreservation">Burial Preservation</label>
+        <input asp-for="BurialPreservation" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="HairTaken">Hair Taken</label>
+        <select asp-for="HairTaken">
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+        </select>
+    </div>
+
+    <div>
+        <lable asp-for="SoftTissueTaken">SoftTissue Taken</lable>
+        <select asp-for="SoftTissueTaken">
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+        </select>
+    </div>
+
+    <div>
+        <label asp-for="BoneTaken">Bone Taken</label>
+        <select asp-for="BoneTaken">
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+        </select>
+    </div>
+
+    <div>
+        <label asp-for="ToothTaken">Tooth Taken</label>
+        <select asp-for="ToothTaken">
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+        </select>
+    </div>
+
+    <div>
+        <label asp-for="TextileTaken">Textile Taken</label>
+        <select asp-for="TextileTaken">
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+        </select>
+    </div>
+
+    <div>
+        <lable asp-for="DescriptionOfTaken">Description Of Taken</lable>
+        <input asp-for="DescriptionOfTaken" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="ArtifactFound">Artifact Found</label>
+        <select asp-for="ArtifactFound">
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+        </select>
+    </div>
+
+    <div>
+        <label asp-for="EstimateAge">Estimate Age</label>
+        <input asp-for="EstimateAge" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="AgeCategory">Age Category</label>
+        <select asp-for="AgeCategory">
+            <option value="Fetal/Newborn">Fetal/Newborn</option>
+            <option value="Infant">Infant</option>
+            <option value="Children">Children</option>
+            <option value="Adult">Adult</option>
+            <option value="Unknown">Unknown</option>
+        </select>
+    </div>
+
+    <div>
+        <label asp-for="AgeMethod">Age Method</label>
+        <input asp-for="AgeMethod" type="text" />
+    </div>
+
+    <div>
+        <lable asp-for="EstimateLivingStature">Estimate Living Stature</lable>
+        <input asp-for="EstimateLivingStature" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="ToothAttrition">Tooth Attrition</label>
+        <input asp-for="ToothAttrition" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="ToothEruption">Tooth Eruption</label>
+        <input asp-for="ToothEruption" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="PathologyAnomalies">Pathology Anomalies</label>
+        <input asp-for="PathologyAnomalies" type="text" />
+    </div>
+
+    <div>
+        <lable asp-for="EpiphysealUnion">Epiphyseal Union</lable>
+        <input asp-for="EpiphysealUnion" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="BodyAnalysis">Body Analysis</label>
+        <input asp-for="BodyAnalysis" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="YearFound">Year Found</label>
+        <input asp-for="YearFound" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="MonthFound">Month Found</label>
+        <input asp-for="MonthFound" type="text" />
+    </div>
+
+    <div>
+        <lable asp-for="DayFound">Day Found</lable>
+        <input asp-for="DayFound" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="HeadDirection">Head Direction</label>
+        <input asp-for="HeadDirection" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="Gamous">Gamous</label>
+        <input asp-for="Gamous" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="FieldBook">Field Book</label>
+        <input asp-for="FieldBook" type="text" />
+    </div>
+
+    <div>
+        <lable asp-for="FieldBookPageNumber">Field Book Page Number</lable>
+        <input asp-for="FieldBookPageNumber" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="FieldBookNotes">Field Book Notes</label>
+        <input asp-for="FieldBookNotes" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="ByuHasSample">BYU Has Sample</label>
+        <input asp-for="ByuHasSample" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="OsteologyUnknownComment">Osteology Unknown Comment</label>
+        <input asp-for="OsteologyUnknownComment" type="text" />
+    </div>
+
+    <div>
+        <lable asp-for="TemporalMandibularJointOsteoarthritisTmjOa">Temporal Mandibular Joint Osteoarthritis Tmj Oa</lable>
+        <input asp-for="TemporalMandibularJointOsteoarthritisTmjOa" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="PostcraniaAtMagazine">Postcrania At Magazine</label>
+        <input asp-for="PostcraniaAtMagazine" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="LinearHypoplasiaEnamel">Linear Hypoplasia Enamel</label>
+        <input asp-for="LinearHypoplasiaEnamel" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="PostcraniaTrauma">Postcrania Trauma</label>
+        <input asp-for="PostcraniaTrauma" type="text" />
+    </div>
+
+    <div>
+        <lable asp-for="Area">Area</lable>
+        <input asp-for="Area" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="Tomb">Tomb</label>
+        <input asp-for="Tomb" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="Rack">Rack</label>
+        <input asp-for="Rack" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="Shelf">Shelf</label>
+        <input asp-for="Shelf" type="text" />
+    </div>
+
+    <div>
+        <lable asp-for="OsteologyNotes">Osteology Notes</lable>
+        <input asp-for="OsteologyNotes" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="SampleTaken">Sample Taken</label>
+        <select asp-for="SampleTaken">
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+        </select>
+    </div>
+
+    <div>
+        <lable asp-for="BurialArtifactDescription">Burial Artifact Description</lable>
+        <input asp-for="BurialArtifactDescription" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="BuriedWithArtifacts">Buried With Artifacts</label>
+        <input asp-for="BuriedWithArtifacts" type="text" />
+    </div>
+
+
+
+
+
+    <button type="submit" class="btn btn-success">Submit Burial</button>
+
+    <div asp-validation-summary="All"></div>
+
+</form>
+
+

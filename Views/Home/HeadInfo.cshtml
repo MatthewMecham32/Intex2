@@ -1,0 +1,185 @@
+﻿@model HeadViewModel
+
+
+
+<div>
+    <!--displays the associated head info in 3 tables for the specific burial that was chosen if any-->
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <h1>Head Information</h1>
+    <table class="table table-dark table-striped table-hover">
+        <thead class="thead-light table-bordered table-condensed">
+
+            <tr>
+
+
+
+                <th>Burial ID</th>
+                <th>Basilar Suture</th>
+                <th>Foreman Magnum</th>
+                <th>Supraorbital Ridges</th>
+                <th>Orbit Edge</th>
+                <th>Parietal Bossing</th>
+                <th>Gonian</th>
+                <th>Nuchal Crest</th>
+                <th>Zygomatic Crest</th>
+                <th>Cranial Suture</th>
+                <th>Maximum Cranial Length</th>
+                <th>Maximum Cranial Breadth</th>
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var x in Model.Head)
+            {
+            <tr>
+                <td>@x.OurId</td>
+                <td>@x.BasilarSuture</td>
+                <td>@x.ForemanMagnum</td>
+                <td>@x.SupraorbitalRidges</td>
+                <td>@x.OrbitEdge</td>
+                <td>@x.ParietalBossing</td>
+                <td>@x.Gonian</td>
+                <td>@x.NuchalCrest</td>
+                <td>@x.ZygomaticCrest</td>
+                <td>@x.CranialSuture</td>
+                <td>@x.MaximumCranialLength</td>
+                <td>@x.MaximumCranialBreadth</td>
+
+
+
+            </tr>
+
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <br />
+    <table class="table table-dark table-striped table-hover">
+        <thead class="thead-light table-bordered table-condensed">
+
+            <tr>
+
+
+
+                <th>Burial ID</th>
+                <th>Interorbital Breadth</th>
+                <th>Year On Skull</th>
+                <th>Month On Skull</th>
+                <th>Date On Skull</th>
+                <th>Basion Bregma Height</th>
+                <th>Basion Nasion</th>
+                <th>Basion Prosthion Length</th>
+                <th>Bizygomatic Diameter</th>
+                <th>Nasion Prosthion</th>
+                <th>Maximum Nasal Breadth</th>
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var x in Model.Head)
+            {
+            <tr>
+                <td>@x.OurId</td>
+                <td>@x.BasionBregmaHeight</td>
+                <td>@x.BasionNasion</td>
+                <td>@x.BasionProsthionLength</td>
+                <td>@x.BizygomaticDiameter</td>
+                <td>@x.NasionProsthion</td>
+                <td>@x.MaximumNasalBreadth</td>
+                <td>@x.InterorbitalBreadth</td>
+                <td>@x.YearOnSkull</td>
+                <td>@x.MonthOnSkull</td>
+                <td>@x.DateOnSkull</td>
+
+
+
+            </tr>
+
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <br />
+    <table class="table table-dark table-striped table-hover">
+        <thead class="thead-light table-bordered table-condensed">
+
+            <tr>
+
+
+
+                <th>Burial ID</th>
+                <th>Skull Trauma</th>
+                <th>Age Skull 2018</th>
+                <th>Sex Skull 2018</th>
+                <th>Skull At Magazine</th>
+                <th>Metopic Suture</th>
+                <th>Button Osteoma</th>
+                <th>Porotic Hyperostosis</th>
+                <th>Porotic Hyperostosis Locations</th>
+                <th>Cribra Orbitala</th>
+                <th>To Be Confirmed</th>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var x in Model.Head)
+            {
+            <tr>
+                <td>@x.OurId</td>
+                <td>@x.SkullTrauma</td>
+                <td>@x.AgeSkull2018</td>
+                <td>@x.SexSkull2018</td>
+                <td>@x.SkullAtMagazine</td>
+                <td>@x.MetopicSuture</td>
+                <td>@x.ButtonOsteoma</td>
+                <td>@x.PoroticHyperostosis</td>
+                <td>@x.PoroticHyperostosisLocations</td>
+                <td>@x.CribraOrbitala</td>
+                <td>@x.ToBeConfirmed</td>
+
+
+            </tr>
+
+            }
+        </tbody>
+    </table>
+    @*Allows the user to return to the "View Details" page for a specific burial
+        foreach (var x in Model.Head)
+        {*@
+    @*<form asp-for="ViewDetails" method="get">
+            <input hidden value="OurId" />
+            <button type="submit">Click here to return to burial details.</button>
+        </form>*@
+
+    @*}*@
+    <br />
+    <br />
+
+    <!--button to take the user back to the burial list page-->
+    <form asp-action="BurialList" method="post">
+        <button class="btn-info" type="submit">Burial List</button>
+    </form>
+
+
+</div>
+
+
+
+
+
