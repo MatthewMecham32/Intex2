@@ -52,7 +52,10 @@ namespace justTesting.Controllers
         public IActionResult EditBurial(Burial burial)
         {
 
-            return View("EditBurial", burial);
+            IEnumerable<Burial> burials = context.Burial
+                .Where(b => b.OurId == burial.OurId);
+
+            return View("EditBurial", burials);
 
         }
 

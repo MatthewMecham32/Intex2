@@ -213,12 +213,12 @@
 
                                 <div id="collapse2" class="panel-collapse collapse">
                                     <form id="@x.OurId" method="get" asp-action="EditBurial">
-                                        <input type="hidden" name="OurId" value="@x.OurId" />
+                                        <input type="hidden" name="OurId" asp-for=@x.OurId />
                                         <button type="submit" class="btn btn-warning">Edit</button>
                                     </form>
                                     <!--if the user is logged in as an admin they will be able to view this button to delete a burial-->
                                     <form id="@x.OurId" method="post" asp-action="Delete">
-                                        <input type="hidden" name="OurId" value="@x.OurId" />
+                                        <input type="hidden" name="OurId" asp-for=@x.OurId />
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                     <br />

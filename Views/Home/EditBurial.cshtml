@@ -1,5 +1,5 @@
 ﻿
-@model Burial
+@model IEnumerable<Burial>
 
 <br />
 <br />
@@ -17,349 +17,350 @@
 
 <br />
 <br />
-
+@foreach (var x in Model)
+{ 
 <form asp-action="EditBurialPost" method="post">
     <div asp-validation-summary="All">
 
-        <input hidden asp-for="OurId" value="@Model.OurId" />
+        <input hidden asp-for="@x.OurId" value="@x.OurId" />
 
         <div>
-            <label asp-for="BurialId"></label>
-            <input asp-for="BurialId" value="@Model.BurialId" />
+            <label asp-for="@x.BurialId"></label>
+            <input asp-for="@x.BurialId" value="@x.BurialId" />
         </div>
 
         <div>
-            <label asp-for="BurialSiteId"></label>
-            <input asp-for="BurialSiteId" value="@Model.BurialSiteId" />
+            <label asp-for="@x.BurialSiteId"></label>
+            <input asp-for="@x.BurialSiteId" value="@x.BurialSiteId" />
         </div>
 
         <div>
-            <label asp-for="BurialLocationNs"></label>
-            <input asp-for="BurialLocationNs" value="@Model.BurialLocationNs" />
+            <label asp-for="@x.BurialLocationNs"></label>
+            <input asp-for="@x.BurialLocationNs" value="@x.BurialLocationNs" />
         </div>
 
         <div>
-            <label asp-for="BurialLocationEw"></label>
-            <input asp-for="BurialLocationEw" value="@Model.BurialLocationEw" />
+            <label asp-for="@x.BurialLocationEw"></label>
+            <input asp-for="@x.BurialLocationEw" value="@x.BurialLocationEw" />
         </div>
 
         <div>
-            <label asp-for="LowPairNs"></label>
-            <input asp-for="LowPairNs" value="@Model.LowPairNs" />
+            <label asp-for="@x.LowPairNs"></label>
+            <input asp-for="@x.LowPairNs" value="@x.LowPairNs" />
         </div>
 
         <div>
-            <label asp-for="HighPairNs"></label>
-            <input asp-for="HighPairNs" value="@Model.HighPairNs" />
+            <label asp-for="@x.HighPairNs"></label>
+            <input asp-for="@x.HighPairNs" value="@x.HighPairNs" />
         </div>
 
         <div>
-            <label asp-for="LowPairEw"></label>
-            <input asp-for="LowPairEw" value="@Model.LowPairEw" />
+            <label asp-for="@x.LowPairEw"></label>
+            <input asp-for="@x.LowPairEw" value="@x.LowPairEw" />
         </div>
 
         <div>
-            <label asp-for="HighPairEw"></label>
-            <input asp-for="HighPairEw" value="@Model.HighPairEw" />
+            <label asp-for="@x.HighPairEw"></label>
+            <input asp-for="@x.HighPairEw" value="@x.HighPairEw" />
         </div>
 
         <div>
-            <label asp-for="BurialSubplot"></label>
-            <input asp-for="BurialSubplot" value="@Model.BurialSubplot" />
+            <label asp-for="@x.BurialSubplot"></label>
+            <input asp-for="@x.BurialSubplot" value="@x.BurialSubplot" />
         </div>
 
         <div>
-            <label asp-for="BurialDepthMeters"></label>
-            <input asp-for="BurialDepthMeters" value="@Model.BurialDepthMeters" />
+            <label asp-for="@x.BurialDepthMeters"></label>
+            <input asp-for="@x.BurialDepthMeters" value="@x.BurialDepthMeters" />
         </div>
 
         <div>
-            <label asp-for="SouthToHead"></label>
-            <input asp-for="SouthToHead" value="@Model.SouthToHead" />
+            <label asp-for="@x.SouthToHead"></label>
+            <input asp-for="@x.SouthToHead" value="@x.SouthToHead" />
         </div>
 
         <div>
-            <label asp-for="SouthToFeet"></label>
-            <input asp-for="SouthToFeet" value="@Model.SouthToFeet" />
+            <label asp-for="@x.SouthToFeet"></label>
+            <input asp-for="@x.SouthToFeet" value="@x.SouthToFeet" />
         </div>
 
         <div>
-            <label asp-for="WestToHeadMeters"></label>
-            <input asp-for="WestToHeadMeters" value="@Model.WestToHeadMeters" />
+            <label asp-for="@x.WestToHeadMeters"></label>
+            <input asp-for="@x.WestToHeadMeters" value="@x.WestToHeadMeters" />
         </div>
         <div>
-            <label asp-for="WestToFeet"></label>
-            <input asp-for="WestToFeet" value="@Model.WestToFeet" />
+            <label asp-for="@x.WestToFeet"></label>
+            <input asp-for="@x.WestToFeet" value="@x.WestToFeet" />
         </div>
 
         <div>
-            <label asp-for="FaceBundle"></label>
-            <input asp-for="FaceBundle" value="@Model.FaceBundle" />
+            <label asp-for="@x.FaceBundle"></label>
+            <input asp-for="@x.FaceBundle" value="@x.FaceBundle" />
         </div>
 
         <div>
-            <label asp-for="BurialWrapping"></label>
-            <input asp-for="BurialWrapping" value="@Model.BurialWrapping" />
+            <label asp-for="@x.BurialWrapping"></label>
+            <input asp-for="@x.BurialWrapping" value="@x.BurialWrapping" />
         </div>
 
         <div>
-            <label asp-for="BurialSituation"></label>
-            <input asp-for="BurialSituation" value="@Model.BurialSituation" />
+            <label asp-for="@x.BurialSituation"></label>
+            <input asp-for="@x.BurialSituation" value="@x.BurialSituation" />
         </div>
 
         <div>
-            <label asp-for="Cluster"></label>
-            <input asp-for="Cluster" value="@Model.Cluster" />
+            <label asp-for="@x.Cluster"></label>
+            <input asp-for="@x.Cluster" value="@x.Cluster" />
         </div>
 
         <div>
-            <label asp-for="BurialLengthMeters"></label>
-            <input asp-for="BurialLengthMeters" value="@Model.BurialLengthMeters" />
+            <label asp-for="@x.BurialLengthMeters"></label>
+            <input asp-for="@x.BurialLengthMeters" value="@x.BurialLengthMeters" />
         </div>
 
         <div>
-            <label asp-for="BurialNumber"></label>
-            <input asp-for="BurialNumber" value="@Model.BurialNumber" />
+            <label asp-for="@x.BurialNumber"></label>
+            <input asp-for="@x.BurialNumber" value="@x.BurialNumber" />
         </div>
 
         <div>
-            <label asp-for="SampleNumber"></label>
-            <input asp-for="SampleNumber" value="@Model.SampleNumber" />
+            <label asp-for="@x.SampleNumber"></label>
+            <input asp-for="@x.SampleNumber" value="@x.SampleNumber" />
         </div>
 
         <div>
-            <label asp-for="GenderGe"></label>
-            <input asp-for="GenderGe" value="@Model.GenderGe" />
+            <label asp-for="@x.GenderGe"></label>
+            <input asp-for="@x.GenderGe" value="@x.GenderGe" />
         </div>
 
         <div>
-            <label asp-for="GeFunctionTotal"></label>
-            <input asp-for="GeFunctionTotal" value="@Model.GeFunctionTotal" />
+            <label asp-for="@x.GeFunctionTotal"></label>
+            <input asp-for="@x.GeFunctionTotal" value="@x.GeFunctionTotal" />
         </div>
 
         <div>
-            <label asp-for="GenderBodyCol"></label>
-            <input asp-for="GenderBodyCol" value="@Model.GenderBodyCol" />
+            <label asp-for="@x.GenderBodyCol"></label>
+            <input asp-for="@x.GenderBodyCol" value="@x.GenderBodyCol" />
         </div>
 
         <div>
-            <label asp-for="Osteophytosis"></label>
-            <input asp-for="Osteophytosis" value="@Model.Osteophytosis" />
+            <label asp-for="@x.Osteophytosis"></label>
+            <input asp-for="@x.Osteophytosis" value="@x.Osteophytosis" />
         </div>
 
         <div>
-            <label asp-for="Robust"></label>
-            <input asp-for="Robust" value="@Model.Robust" />
+            <label asp-for="@x.Robust"></label>
+            <input asp-for="@x.Robust" value="@x.Robust" />
         </div>
 
         <div>
-            <label asp-for="ArtifactsDescription"></label>
-            <input asp-for="ArtifactsDescription" value="@Model.ArtifactsDescription" />
+            <label asp-for="@x.ArtifactsDescription"></label>
+            <input asp-for="@x.ArtifactsDescription" value="@x.ArtifactsDescription" />
         </div>
 
         <div>
-            <label asp-for="HairColor"></label>
-            <input asp-for="HairColor" value="@Model.HairColor" />
+            <label asp-for="@x.HairColor"></label>
+            <input asp-for="@x.HairColor" value="@x.HairColor" />
         </div>
 
         <div>
-            <label asp-for="PreservationIndex"></label>
-            <input asp-for="PreservationIndex" value="@Model.PreservationIndex" />
+            <label asp-for="@x.PreservationIndex"></label>
+            <input asp-for="@x.PreservationIndex" value="@x.PreservationIndex" />
         </div>
 
         <div>
-            <label asp-for="BurialPreservation"></label>
-            <input asp-for="BurialPreservation" value="@Model.BurialPreservation" />
+            <label asp-for="@x.BurialPreservation"></label>
+            <input asp-for="@x.BurialPreservation" value="@x.BurialPreservation" />
         </div>
 
         <div>
-            <label asp-for="HairTaken"></label>
-            <input asp-for="HairTaken" value="@Model.HairTaken" />
+            <label asp-for="@x.HairTaken"></label>
+            <input asp-for="@x.HairTaken" value="@x.HairTaken" />
         </div>
 
         <div>
-            <label asp-for="SoftTissueTaken"></label>
-            <input asp-for="SoftTissueTaken" value="@Model.SoftTissueTaken" />
+            <label asp-for="@x.SoftTissueTaken"></label>
+            <input asp-for="@x.SoftTissueTaken" value="@x.SoftTissueTaken" />
         </div>
 
         <div>
-            <label asp-for="BoneTaken"></label>
-            <input asp-for="BoneTaken" value="@Model.BoneTaken" />
+            <label asp-for="@x.BoneTaken"></label>
+            <input asp-for="@x.BoneTaken" value="@x.BoneTaken" />
         </div>
 
         <div>
-            <label asp-for="ToothTaken"></label>
-            <input asp-for="ToothTaken" value="@Model.ToothTaken" />
+            <label asp-for="@x.ToothTaken"></label>
+            <input asp-for="@x.ToothTaken" value="@x.ToothTaken" />
         </div>
 
         <div>
-            <label asp-for="TextileTaken"></label>
-            <input asp-for="TextileTaken" value="@Model.TextileTaken" />
+            <label asp-for="@x.TextileTaken"></label>
+            <input asp-for="@x.TextileTaken" value="@x.TextileTaken" />
         </div>
 
         <div>
-            <label asp-for="DescriptionOfTaken"></label>
-            <input asp-for="DescriptionOfTaken" value="@Model.DescriptionOfTaken" />
+            <label asp-for="@x.DescriptionOfTaken"></label>
+            <input asp-for="@x.DescriptionOfTaken" value="@x.DescriptionOfTaken" />
         </div>
 
         <div>
-            <label asp-for="ArtifactFound"></label>
-            <input asp-for="ArtifactFound" value="@Model.ArtifactFound" />
+            <label asp-for="@x.ArtifactFound"></label>
+            <input asp-for="@x.ArtifactFound" value="@x.ArtifactFound" />
         </div>
 
         <div>
-            <label asp-for="EstimateAge"></label>
-            <input asp-for="EstimateAge" value="@Model.EstimateAge" />
+            <label asp-for="@x.EstimateAge"></label>
+            <input asp-for="@x.EstimateAge" value="@x.EstimateAge" />
         </div>
 
         <div>
-            <label asp-for="AgeCategory"></label>
-            <input asp-for="AgeCategory" value="@Model.AgeCategory" />
+            <label asp-for="@x.AgeCategory"></label>
+            <input asp-for="@x.AgeCategory" value="@x.AgeCategory" />
         </div>
 
         <div>
-            <label asp-for="EstimateLivingStature"></label>
-            <input asp-for="EstimateLivingStature" value="@Model.EstimateLivingStature" />
+            <label asp-for="@x.EstimateLivingStature"></label>
+            <input asp-for="@x.EstimateLivingStature" value="@x.EstimateLivingStature" />
         </div>
 
         <div>
-            <label asp-for="ToothAttrition"></label>
-            <input asp-for="ToothAttrition" value="@Model.ToothAttrition" />
+            <label asp-for="@x.ToothAttrition"></label>
+            <input asp-for="@x.ToothAttrition" value="@x.ToothAttrition" />
         </div>
 
         <div>
-            <label asp-for="PathologyAnomalies"></label>
-            <input asp-for="PathologyAnomalies" value="@Model.PathologyAnomalies" />
+            <label asp-for="@x.PathologyAnomalies"></label>
+            <input asp-for="@x.PathologyAnomalies" value="@x.PathologyAnomalies" />
         </div>
 
         <div>
-            <label asp-for="EpiphysealUnion"></label>
-            <input asp-for="EpiphysealUnion" value="@Model.EpiphysealUnion" />
+            <label asp-for="@x.EpiphysealUnion"></label>
+            <input asp-for="@x.EpiphysealUnion" value="@x.EpiphysealUnion" />
         </div>
 
         <div>
-            <label asp-for="BodyAnalysis"></label>
-            <input asp-for="BodyAnalysis" value="@Model.BodyAnalysis" />
+            <label asp-for="@x.BodyAnalysis"></label>
+            <input asp-for="@x.BodyAnalysis" value="@x.BodyAnalysis" />
         </div>
 
         <div>
-            <label asp-for="YearFound"></label>
-            <input asp-for="YearFound" value="@Model.YearFound" />
+            <label asp-for="@x.YearFound"></label>
+            <input asp-for="@x.YearFound" value="@x.YearFound" />
         </div>
 
         <div>
-            <label asp-for="MonthFound"></label>
-            <input asp-for="MonthFound" value="@Model.MonthFound" />
+            <label asp-for="@x.MonthFound"></label>
+            <input asp-for="@x.MonthFound" value="@x.MonthFound" />
         </div>
 
         <div>
-            <label asp-for="DayFound"></label>
-            <input asp-for="DayFound" value="@Model.DayFound" />
+            <label asp-for="@x.DayFound"></label>
+            <input asp-for="@x.DayFound" value="@x.DayFound" />
         </div>
 
         <div>
-            <label asp-for="HeadDirection"></label>
-            <input asp-for="HeadDirection" value="@Model.HeadDirection" />
+            <label asp-for="@x.HeadDirection"></label>
+            <input asp-for="@x.HeadDirection" value="@x.HeadDirection" />
         </div>
 
         <div>
-            <label asp-for="Gamous"></label>
-            <input asp-for="Gamous" value="@Model.Gamous" />
+            <label asp-for="@x.Gamous"></label>
+            <input asp-for="@x.Gamous" value="@x.Gamous" />
         </div>
 
         <div>
-            <label asp-for="FieldBook"></label>
-            <input asp-for="FieldBook" value="@Model.FieldBook" />
+            <label asp-for="@x.FieldBook"></label>
+            <input asp-for="@x.FieldBook" value="@x.FieldBook" />
         </div>
 
         <div>
-            <label asp-for="FieldBookPageNumber"></label>
-            <input asp-for="FieldBookPageNumber" value="@Model.FieldBookPageNumber" />
+            <label asp-for="@x.FieldBookPageNumber"></label>
+            <input asp-for="@x.FieldBookPageNumber" value="@x.FieldBookPageNumber" />
         </div>
 
         <div>
-            <label asp-for="FieldBookNotes"></label>
-            <input asp-for="FieldBookNotes" value="@Model.FieldBookNotes" />
+            <label asp-for="@x.FieldBookNotes"></label>
+            <input asp-for="@x.FieldBookNotes" value="@x.FieldBookNotes" />
         </div>
 
         <div>
-            <label asp-for="ByuHasSample"></label>
-            <input asp-for="ByuHasSample" value="@Model.ByuHasSample" />
+            <label asp-for="@x.ByuHasSample"></label>
+            <input asp-for="@x.ByuHasSample" value="@x.ByuHasSample" />
         </div>
 
         <div>
-            <label asp-for="OsteologyUnknownComment"></label>
-            <input asp-for="OsteologyUnknownComment" value="@Model.OsteologyUnknownComment" />
+            <label asp-for="@x.OsteologyUnknownComment"></label>
+            <input asp-for="@x.OsteologyUnknownComment" value="@x.OsteologyUnknownComment" />
         </div>
 
         <div>
-            <label asp-for="TemporalMandibularJointOsteoarthritisTmjOa"></label>
-            <input asp-for="TemporalMandibularJointOsteoarthritisTmjOa" value="@Model.TemporalMandibularJointOsteoarthritisTmjOa" />
+            <label asp-for="@x.TemporalMandibularJointOsteoarthritisTmjOa"></label>
+            <input asp-for="@x.TemporalMandibularJointOsteoarthritisTmjOa" value="@x.TemporalMandibularJointOsteoarthritisTmjOa" />
         </div>
 
         <div>
-            <label asp-for="PostcraniaAtMagazine"></label>
-            <input asp-for="PostcraniaAtMagazine" value="@Model.PostcraniaAtMagazine" />
+            <label asp-for="@x.PostcraniaAtMagazine"></label>
+            <input asp-for="@x.PostcraniaAtMagazine" value="@x.PostcraniaAtMagazine" />
         </div>
 
         <div>
-            <label asp-for="LinearHypoplasiaEnamel"></label>
-            <input asp-for="LinearHypoplasiaEnamel" value="@Model.LinearHypoplasiaEnamel" />
+            <label asp-for="@x.LinearHypoplasiaEnamel"></label>
+            <input asp-for="@x.LinearHypoplasiaEnamel" value="@x.LinearHypoplasiaEnamel" />
         </div>
 
         <div>
-            <label asp-for="PostcraniaTrauma"></label>
-            <input asp-for="PostcraniaTrauma" value="@Model.PostcraniaTrauma" />
+            <label asp-for="@x.PostcraniaTrauma"></label>
+            <input asp-for="@x.PostcraniaTrauma" value="@x.PostcraniaTrauma" />
         </div>
 
         <div>
-            <label asp-for="Area"></label>
-            <input asp-for="Area" value="@Model.Area" />
+            <label asp-for="@x.Area"></label>
+            <input asp-for="@x.Area" value="@x.Area" />
         </div>
 
         <div>
-            <label asp-for="Tomb"></label>
-            <input asp-for="Tomb" value="@Model.Tomb" />
+            <label asp-for="@x.Tomb"></label>
+            <input asp-for="@x.Tomb" value="@x.Tomb" />
         </div>
 
         <div>
-            <label asp-for="Rack"></label>
-            <input asp-for="Rack" value="@Model.Rack" />
+            <label asp-for="@x.Rack"></label>
+            <input asp-for="@x.Rack" value="@x.Rack" />
         </div>
 
         <div>
-            <label asp-for="Shelf"></label>
-            <input asp-for="Shelf" value="@Model.Shelf" />
+            <label asp-for="@x.Shelf"></label>
+            <input asp-for="@x.Shelf" value="@x.Shelf" />
         </div>
 
         <div>
-            <label asp-for="OsteologyNotes"></label>
-            <input asp-for="OsteologyNotes" value="@Model.OsteologyNotes" />
+            <label asp-for="@x.OsteologyNotes"></label>
+            <input asp-for="@x.OsteologyNotes" value="@x.OsteologyNotes" />
         </div>
 
         <div>
-            <label asp-for="SampleTaken"></label>
-            <input asp-for="SampleTaken" value="@Model.SampleTaken" />
+            <label asp-for="@x.SampleTaken"></label>
+            <input asp-for="@x.SampleTaken" value="@x.SampleTaken" />
         </div>
 
         <div>
-            <label asp-for="SexMethod"></label>
-            <input asp-for="SexMethod" value="@Model.SexMethod" />
+            <label asp-for="@x.SexMethod"></label>
+            <input asp-for="@x.SexMethod" value="@x.SexMethod" />
         </div>
 
         <div>
-            <label asp-for="AgeMethod"></label>
-            <input asp-for="AgeMethod" value="@Model.AgeMethod" />
+            <label asp-for="@x.AgeMethod"></label>
+            <input asp-for="@x.AgeMethod" value="@x.AgeMethod" />
         </div>
 
         <div>
-            <label asp-for="BurialArtifactDescription"></label>
-            <input asp-for="BurialArtifactDescription" value="@Model.BurialArtifactDescription" />
+            <label asp-for="@x.BurialArtifactDescription"></label>
+            <input asp-for="@x.BurialArtifactDescription" value="@x.BurialArtifactDescription" />
         </div>
 
         <div>
-            <label asp-for="BuriedWithArtifacts"></label>
-            <input asp-for="BuriedWithArtifacts" value="@Model.BuriedWithArtifacts" />
+            <label asp-for="@x.BuriedWithArtifacts"></label>
+            <input asp-for="@x.BuriedWithArtifacts" value="@x.BuriedWithArtifacts" />
         </div>
 
 
@@ -367,4 +368,5 @@
 
     <button type="submit">Submit your changes!</button>
 </form>
+}
 
